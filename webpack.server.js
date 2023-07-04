@@ -15,7 +15,15 @@ module.exports = {
       ".js": [".js", ".ts"],
       ".cjs": [".cjs", ".cts"],
       ".mjs": [".mjs", ".mts"]
-    }
+    },
+    alias: {
+      "react": "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
+      "react-dom": "preact/compat",
+      "react/jsx-runtime": "preact/jsx-runtime",
+
+      client: path.resolve(__dirname, 'src/client/')
+    },
   },
   module: {
     rules: [

@@ -3,11 +3,19 @@
     "module": "commonjs",
     "target": "es6",
     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "esModuleInterop": true,
     "outDir": "./dist",
     "allowJs": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+
+    "skipLibCheck": true,
+    "paths": {
+      "react": ["./node_modules/preact/compat/"],
+      "react-dom": ["./node_modules/preact/compat/"]
+    },
+
     "baseUrl": "src"
   },
   "include": ["src"]

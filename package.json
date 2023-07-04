@@ -12,6 +12,7 @@
   "author": "Majid Ghafoorzade",
   "license": "ISC",
   "devDependencies": {
+    "@types/hbs": "^4.0.1",
     "concurrently": "^8.2.0",
     "nodemon": "^2.0.22",
     "ts-loader": "^9.4.4",
@@ -22,7 +23,14 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@fastify/view": "^8.0.0",
+    "@preact/compat": "^17.1.2",
     "dotenv": "^16.3.1",
-    "fastify": "^4.19.2"
+    "fastify": "^4.19.2",
+    "hbs": "^4.2.0",
+    "preact": "^10.15.1",
+    "preact-render-to-string": "^6.1.0",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat"
   }
 }

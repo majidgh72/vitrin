@@ -1,5 +1,8 @@
-import Fastify from "fastify";
 import dotEnv from "dotenv";
+import Fastify from "fastify";
+import fastifyView from "@fastify/view";
+import hbs from "hbs";
+import { renderApp } from "./providers/renderApp";
 
 // config env variables
 dotEnv.config();
@@ -10,9 +13,19 @@ const PORT = parseInt(process.env.APPLICATION_PORT) || 3000;
 // create fastify server
 const app = Fastify();
 
+// Config view loader
+app.register(fastifyView, {
+  engine: {
+    handlebars: hbs,
+  },
+});
+
 // Declare a route
 app.get("/", async function handler(request, reply) {
-  return { hello: "mijol" };
+  const markup = renderApp();
+  return reply.view("./src/server/views/app.hbs", {
+    markup,
+  });
 });
 
 // Run the fastify server!
