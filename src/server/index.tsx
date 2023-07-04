@@ -1,6 +1,8 @@
+import path from "path";
 import dotEnv from "dotenv";
 import Fastify from "fastify";
 import fastifyView from "@fastify/view";
+import fastifyStatic from "@fastify/static";
 import hbs from "hbs";
 import { renderApp } from "./providers/renderApp";
 
@@ -18,6 +20,14 @@ app.register(fastifyView, {
   engine: {
     handlebars: hbs,
   },
+});
+
+// Serve static files
+app.register(fastifyStatic, {
+  root: [
+    path.join(__dirname, "../../public"),
+    path.join(__dirname, "../../dist/client"),
+  ],
 });
 
 // Declare a route

@@ -1,5 +1,12 @@
-export const App = (
-  <div>
-    <h1>This is App component from clients directory</h1>
-  </div>
-);
+import { useState } from "preact/hooks";
+
+export const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div id="app">
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Add Item</button>
+    </div>
+  );
+};
