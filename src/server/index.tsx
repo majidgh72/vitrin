@@ -15,6 +15,15 @@ const PORT = parseInt(process.env.APPLICATION_PORT) || 3000;
 // create fastify server
 const app = Fastify();
 
+// Serve static files
+app.register(fastifyStatic, {
+  root: [
+    path.join(__dirname, "../../public"),
+    path.join(__dirname, "../../dist/client"),
+  ],
+  prefix: "/static/",
+});
+
 // Config view loader
 app.register(fastifyView, {
   engine: {
@@ -22,17 +31,9 @@ app.register(fastifyView, {
   },
 });
 
-// Serve static files
-app.register(fastifyStatic, {
-  root: [
-    path.join(__dirname, "../../public"),
-    path.join(__dirname, "../../dist/client"),
-  ],
-});
-
 // Declare a route
-app.get("/", async function handler(request, reply) {
-  const markup = renderApp();
+app.get("/*", async function handler(request, reply) {
+  const markup = renderApp(request.url);
   return reply.view("./src/server/views/app.hbs", {
     markup,
   });

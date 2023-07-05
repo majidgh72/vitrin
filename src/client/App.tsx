@@ -1,12 +1,20 @@
-import { useState } from "preact/hooks";
+import Router, { Route } from "preact-router";
+import { FunctionComponent } from "preact";
 
-export const App = () => {
-  const [count, setCount] = useState(0);
+import { Home } from "./views/Home";
+import { About } from "./views/About";
 
+interface IAppProps {
+  url?: string;
+}
+
+export const App: FunctionComponent<IAppProps> = ({ url }) => {
   return (
     <div id="app">
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Add Item</button>
+      <Router url={url}>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </Router>
     </div>
   );
 };

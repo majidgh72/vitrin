@@ -32,6 +32,7 @@
     "hbs": "^4.2.0",
     "preact": "^10.15.1",
     "preact-render-to-string": "^6.1.0",
+    "preact-router": "^4.1.1",
     "react": "npm:@preact/compat",
     "react-dom": "npm:@preact/compat"
   }
