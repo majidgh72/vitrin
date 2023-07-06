@@ -20,7 +20,8 @@ module.exports = {
       "react-dom": "preact/compat",
       "react/jsx-runtime": "preact/jsx-runtime",
 
-      client: path.resolve(__dirname, 'src/client/')
+      client: path.resolve(__dirname, 'src/client/'),
+      server: path.resolve(__dirname, 'src/server/'),
     },
   },
   module: {

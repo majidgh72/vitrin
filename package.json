@@ -27,6 +27,7 @@
     "@fastify/static": "^6.10.2",
     "@fastify/view": "^8.0.0",
     "@preact/compat": "^17.1.2",
+    "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "fastify": "^4.19.2",
     "hbs": "^4.2.0",
