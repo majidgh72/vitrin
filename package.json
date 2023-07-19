@@ -24,6 +24,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@fastify/compress": "^6.4.0",
     "@fastify/static": "^6.10.2",
     "@fastify/view": "^8.0.0",
     "@preact/compat": "^17.1.2",

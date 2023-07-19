@@ -3,6 +3,7 @@ import dotEnv from "dotenv";
 import Fastify from "fastify";
 import fastifyView from "@fastify/view";
 import fastifyStatic from "@fastify/static";
+import fastifyCompress from "@fastify/compress";
 import hbs from "hbs";
 import { renderApp } from "./providers/renderApp";
 
@@ -14,6 +15,9 @@ const PORT = parseInt(process.env.APPLICATION_PORT) || 3000;
 
 // create fastify server
 const app = Fastify();
+
+// Enable text compression
+app.register(fastifyCompress);
 
 // Serve static files
 app.register(fastifyStatic, {
