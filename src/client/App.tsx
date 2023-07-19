@@ -1,6 +1,5 @@
-import { useState, useEffect } from "preact/hooks";
 import { Route, Router } from "wouter-preact";
-import { routes } from "./config/routes";
+import { routes } from "./config/routesMapper";
 import { AppContext } from "./App.context";
 
 declare global {

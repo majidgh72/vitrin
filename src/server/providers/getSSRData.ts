@@ -1,5 +1,5 @@
 import { pathToRegexp } from "path-to-regexp";
-import { routes } from "client/config/routes";
+import { routes } from "client/config/routesMapper";
 
 export const getSSRData = async (url: string) => {
   const currentRoute = routes.find((route) => {
