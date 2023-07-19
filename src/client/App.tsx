@@ -1,14 +1,22 @@
-import { FunctionComponent } from "preact";
-import { RouterProvider } from "client/config/router";
+import { useState, useEffect } from "preact/hooks";
+import { Route, Router } from "wouter-preact";
+import { routes } from "./config/routes";
+import { AppContext } from "./App.context";
 
-interface IAppProps {
-  url?: string;
+declare global {
+  interface Window {
+    __InitialData: string;
+  }
 }
 
-export const App: FunctionComponent<IAppProps> = ({ url }) => {
+export const App = ({ url, data }: { url?: string; data?: any }) => {
   return (
-    <div id="app">
-      <RouterProvider url={url} />
-    </div>
+    <AppContext.Provider value={data || false}>
+      <Router ssrPath={url}>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} component={route.component} />
+        ))}
+      </Router>
+    </AppContext.Provider>
   );
 };

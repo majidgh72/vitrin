@@ -33,9 +33,10 @@ app.register(fastifyView, {
 
 // Declare a route
 app.get("/*", async function handler(request, reply) {
-  const markup = renderApp(request.url);
+  const { markup, data } = await renderApp(request.url);
   return reply.view("./src/server/views/app.hbs", {
     markup,
+    data: JSON.stringify(data),
   });
 });
 
